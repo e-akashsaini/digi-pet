@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digi-Pet – Stay Human, Stay Supported</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111;
+      --accent: #000;
+      --gray: #666;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      position: relative;
+    }
+
+    header img {
+      width: 120px;
+      height: auto;
+      animation: bounceIn 1.2s ease;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.05) translateY(0);
+      }
+      100% {
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .download-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      font-weight: bold;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background: #333;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 15px 0 8px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px 20px;
+      border-top: 1px dashed #ccc;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .button {
+      padding: 12px 24px;
+      font-weight: bold;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      transition: 0.3s ease;
+    }
+
+    .button:hover {
+      background: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 20px;
+      font-size: 0.9rem;
+      color: var(--gray);
+      border-top: 1px dashed #ccc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="download-btn" href="https://drive.google.com/file/d/1Hd8v5gux-ZKjwmtRrImEn9g1cpgYrlLJ/view?usp=sharing" download>Download</a>
+  <img id="mascot" src="C:\\Users\\Akash\\Desktop\\project\\sheep-interaction\\assets\\trial-png\\001.png" alt="Digi-Pet Mascot">
+  <h1>Digi-Pet</h1>
+  <p>Your emotional support AI companion that lives quietly on your desktop.</p>
+</header>
+
+<section class="fade-section">
+  <h2>Built for Screen-Fatigued Souls</h2>
+  <p>
+    Digi-Pet is a small digital companion created for anyone who spends long hours staring at screens. 
+    It offers a lightweight emotional presence, nudging you with expressions and moments of joy when you need it most.
+  </p>
+</section>
+
+<section class="fade-section">
+  <h2>What Makes Digi-Pet Different?</h2>
+  <ul>
+    <li>🧠 Emotionally responsive behaviors</li>
+    <li>🐶 Adorable pet sprites that react subtly</li>
+    <li>⚙️ Custom check-in intervals</li>
+    <li>📦 One-click zip download – no installation needed</li>
+  </ul>
+</section>
+
+<section class="fade-section">
+  <h2>Adopt Your Digi-Pet</h2>
+  <p>
+    Ready to meet your digital companion? Get started below – it’s free, offline-first, and easy to run.
+  </p>
+  <div class="cta">
+    <a class="button" href="https://drive.google.com/file/d/1Hd8v5gux-ZKjwmtRrImEn9g1cpgYrlLJ/view?usp=sharing" download>Download Digi-Pet (.zip)</a>
+  </div>
+</section>
+
+<footer>
+  <p>Made with love and empathy for humans & machines • © 2025 Digi-Pet Project</p>
+</footer>
+
+<audio id="mascotSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_52a9b3b0cb.mp3?filename=pop-94319.mp3" preload="auto"></audio>
+
+<script>
+  // Animate scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".fade-section").forEach(section => {
+    observer.observe(section);
+  });
+
+  // Mascot sound on load
+  window.addEventListener('load', () => {
+    const audio = document.getElementById("mascotSound");
+    audio.volume = 0.3;
+    audio.play().catch(() => {}); // handle autoplay restrictions silently
+  });
+</script>
+
+</body>
+</html>
